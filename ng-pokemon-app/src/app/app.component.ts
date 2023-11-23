@@ -7,7 +7,7 @@ import { Pokemon } from './pokemon';
 @Component({
   selector: 'app-root',
   standalone: true,
-  // imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // Utilisation de "styleUrls" au lieu de "styleUrl"
 })
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     this.selectPokemon(this.pokemonList[5]);
   }
 
-  selectPokemon(pokemon : Pokemon) {
+  selectPokemon(pokemon: Pokemon) {
     console.log(`Vous avez cliqué sur le Pokémon ${pokemon.name}`);
   }
 }

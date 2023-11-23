@@ -1,2 +1,9 @@
+<!-- app.component.html -->
+
 <h1>{{ title }}</h1>
 
+<ul>
+  <li *ngFor="let pokemon of pokemonList" (click)="selectPokemon(pokemon)">
+    {{ pokemon.name }}
+  </li>
+</ul>
