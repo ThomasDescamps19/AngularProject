@@ -1,18 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { POKEMONS } from './mock-pokemons-list';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { Pokemon } from './pokemon';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  // imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'], // Utilisation de "styleUrls" au lieu de "styleUrl"
 })
 export class AppComponent implements OnInit {
-  pokemons = ['Bulbizarre', 'Salamèche', 'Carapuce'];
+  title = 'Listes de pokémons';
+  pokemonList: Pokemon[] = POKEMONS;
 
   ngOnInit() {
-    console.table(this.pokemons)
+    console.table(this.pokemonList);
+    this.selectPokemon(this.pokemonList[5]);
+  }
+
+  selectPokemon(pokemon : Pokemon) {
+    console.log(`Vous avez cliqué sur le Pokémon ${pokemon.name}`);
   }
 }
