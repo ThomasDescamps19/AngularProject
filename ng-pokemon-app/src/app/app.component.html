@@ -3,7 +3,24 @@
 <h1>{{ title }}</h1>
 
 <ul>
-  <li *ngFor="let pokemon of pokemonList" (click)="selectPokemon(pokemon)">
-    {{ pokemon.name }}
+  <li
+    *ngFor="let pokemon of pokemonList"
+    (click)="selectPokemon(pokemon)"
+    [ngStyle]="{ 'background-color': getTypeColor(pokemon) }"
+  >
+    <!-- ... other content ... -->
+    <img
+      [src]="pokemon.picture"
+      alt="{{ pokemon.name }}"
+      width="100"
+      height="100"
+    />
+    <div>
+      <strong>{{ pokemon.name }}</strong>
+      <p>HP: {{ pokemon.hp }}</p>
+      <p>CP: {{ pokemon.cp }}</p>
+      <p>Types: {{ pokemon.types?.join(", ") }}</p>
+      <p>Created: {{ pokemon.created | date }}</p>
+    </div>
   </li>
 </ul>

@@ -1,0 +1,45 @@
+/* app.component.css */
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    width: 25%;
+    margin: 1%;
+    padding: 1%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+li:hover {
+    transform: scale(1.05);
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    li {
+        width: 45%;
+    }
+}
+
+@media (max-width: 576px) {
+    li {
+        width: 100%;
+    }
+}
+
+.gradient-background {
+    background-color: linear-gradient(to right, olive, lavender) !important;
+}
