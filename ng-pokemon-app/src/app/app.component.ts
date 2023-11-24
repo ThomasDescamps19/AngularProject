@@ -14,18 +14,20 @@ import { Pokemon } from './pokemon';
 export class AppComponent implements OnInit {
   title = 'Listes de pokémons';
   pokemonList: Pokemon[] = POKEMONS;
+  pokemonSelected: Pokemon | undefined;
+  errorMessage: string = '';
 
   getTypeColor(pokemon: Pokemon): string {
     const types = pokemon.types;
 
     if (types) {
       if (types.includes('Plante') && types.includes('Poison')) {
-        // Si le Pokémon a les deux types 'Feu' et 'Plante', retournez une couleur spécifique
+        
         return '#809980';
       }
       if (types.includes('Normal') && types.includes('Vol')) {
-        // Si le Pokémon a les deux types 'Feu' et 'Plante', retournez une couleur spécifique
-        return 'orange';
+        
+        return '#7CB3EB';
       }
 
       // Ajoutez des conditions supplémentaires pour d'autres combinaisons de types si nécessaire...
@@ -41,7 +43,13 @@ export class AppComponent implements OnInit {
           case 'eau':
             return '#add8e6';
           case 'normal':
-            return 'olive';
+            return 'grey';
+          case 'fée':
+            return '#FD6C9E';
+          case 'electrik':
+            return 'yellow';
+          case 'poison':
+            return 'violet';
           // Ajoutez d'autres cas au besoin...
           default:
             return '#ccc'; // Couleur par défaut
@@ -59,5 +67,20 @@ export class AppComponent implements OnInit {
 
   selectPokemon(pokemon: Pokemon) {
     console.log(`Vous avez cliqué sur le Pokémon ${pokemon.name}`);
+  }
+
+  findPokemon(pokemonId: string) {
+    const pokemon: Pokemon | undefined = this.pokemonList.find(
+      (p) => p.id === +pokemonId
+    );
+
+    if (pokemon) {
+      console.log(`Vous avez cliqué sur le pokémon ${pokemon.name}`);
+      this.pokemonSelected = pokemon;
+      this.errorMessage = ''; // Réinitialisez le message d'erreur
+    } else {
+      this.errorMessage = "Vous avez demandé un pokémon qui n'existe pas";
+      this.pokemonSelected = pokemon; // Réinitialisez la valeur si le Pokémon n'est pas trouvé
+    }
   }
 }
