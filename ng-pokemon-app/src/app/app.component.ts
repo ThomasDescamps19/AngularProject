@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   pokemonList: Pokemon[] = POKEMONS;
   pokemonSelected: Pokemon | undefined;
   errorMessage: string = '';
+  Message: string ='';
 
   getTypeColor(pokemon: Pokemon): string {
     const types = pokemon.types;
@@ -66,7 +67,7 @@ export class AppComponent implements OnInit {
   }
 
   selectPokemon(pokemon: Pokemon) {
-    console.log(`Vous avez cliqué sur le Pokémon ${pokemon.name}`);
+    this.Message = `Vous avez cliqué sur le Pokémon ${pokemon.name}`;
   }
 
   findPokemon(pokemonId: string) {

@@ -1,4 +1,14 @@
-/* app.component.css */
+.card {
+    border-radius: 10px; /* Ajustez la valeur du rayon selon vos préférences */
+  }
+
+.card:hover {
+    transform: scale(1.05)
+}
+
+/* app.component.css
+
+
 
 ul {
     list-style-type: none;
@@ -27,7 +37,7 @@ img {
     margin: 0 auto;
 }
 
-/* Responsive styles */
+/* Responsive styles 
 @media (max-width: 768px) {
     li {
         width: 45%;
@@ -74,4 +84,4 @@ img {
     position: fixed;
     z-index: -1;
     top: 0;
-}
+}  */
