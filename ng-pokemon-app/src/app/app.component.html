@@ -14,9 +14,9 @@
   <div class="row">
   <ul>  
     <li *ngFor="let pokemon of pokemonList" (click)="selectPokemon(pokemon)"
-      class="col m4 s6 center-align" id="app">
+      class="col m4 s6 center-align" id="app" >
       <div class="card horizontal z-depth-1" pkmnBorderCard>
-        <div class="card-image">
+        <div class="card-image" >
       <img [src]="pokemon.picture" alt="{{ pokemon.name }}" />
         </div> 
       <div class="card-stacked">

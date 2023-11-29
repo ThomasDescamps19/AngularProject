@@ -2,6 +2,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[pkmnBorderCard]',
+  standalone: true,
   
 })
 export class BorderCardDirective {
@@ -18,12 +19,13 @@ export class BorderCardDirective {
     this.setBorder('#f5f5f5');
   }
 
-  setHeight(height: number) {
-    this.el.nativeElement.style.height = `${height}px`;
+  private setHeight(height: number) {
+    this.el.nativeElement.style.height = height + 'px';
   }
 
-  setBorder(color: string) {
-    this.el.nativeElement.style.border = `solid 4px ${color}`;
+  private setBorder(color: string) {
+    let border = 'solid 4px ' + color
+    this.el.nativeElement.style.border = border;
   }
 
 }
