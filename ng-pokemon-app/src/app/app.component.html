@@ -1,35 +1,8 @@
-  <!-- app.component.html -->
+<!-- app.component.html -->
 
-  <h1 class="center">{{ title }}</h1>
+<h1 class="center">{{ title }}</h1>
 
-  <input class="input-field col m6" type="number" #input (keyup.enter)="findPokemon(input.value)">
-
-
-  <p *ngIf="pokemonSelected">Vous avez selectionné : {{pokemonSelected?.name}}</p>
-  <p>{{Message}}</p>
-  <p *ngIf="!pokemonSelected && errorMessage === ''">Aucun pokémon trouvé</p>
+<router-outlet></router-outlet>
 
 
-  <div class="container">
-  <div class="row">
-  <ul>  
-    <li *ngFor="let pokemon of pokemonList" (click)="selectPokemon(pokemon)"
-    
-      class="col m4 s6 center-align" id="app" >
-      <div class="card horizontal z-depth-1" pkmnBorderCard>
-        <div class="card-image" >
-      <img [src]="pokemon.picture" alt="{{ pokemon.name }}" />
-        </div> 
-      <div class="card-stacked">
-        <div class="card-content">
-        <strong>{{ pokemon.name }}</strong>
-        <p><small>{{ pokemon.created | date:"d/M/y"  }}</small></p> 
-        <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}">{{type}}</span>
-        </div>
-      </div>
-    </div>
-    
-    </li>
-  </ul>
-  </div>
-  </div>
+
